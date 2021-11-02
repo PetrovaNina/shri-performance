@@ -1,6 +1,8 @@
+import Counter from './send';
+
 let counter = new Counter();
 
-counter.init('D8F28E50-3339-11EC-9EDF-9F93090795B1', String(Math.random()).substr(2, 12), 'send test');
+counter.init('D8F28E50-3339-11EC-9EDF-9F93090795b6', String(Math.random()).substr(2, 12), 'send test');
 counter.setAdditionalParams({
   env: 'production',
   platform: 'touch'
@@ -12,8 +14,7 @@ counter.send('ttfb', performance.timing.responseEnd - performance.timing.request
 let timeStart = Date.now();
 
 setTimeout(function () {
-  document.querySelector('.square').classList.add('black');
-
+  document.querySelector('.quiz-heading').style.color = 'red';
   counter.send('square', Date.now() - timeStart);
 }, Math.random() * 1000 + 500);
 
@@ -43,11 +44,11 @@ let drawData = function () {
   });
 };
 
-document.querySelector('.load').onclick = function () {
+document.querySelector('.quiz-card').hover = function () {
   let timeStart = Date.now();
 
   setTimeout(function () {
-    counter.send('load', Date.now() - timeStart);
+    counter.send('hover_card', Date.now() - timeStart);
 
     drawData();
   }, Math.random() * 1000 + 2000);

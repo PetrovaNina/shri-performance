@@ -99,3 +99,5 @@ Counter.prototype.sendBatchRequest = function() {
         xhr.send(data);
     }
 }
+
+export default Counter;
