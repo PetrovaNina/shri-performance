@@ -106,9 +106,10 @@
     </main>
     <a class="dev-link" href="https://petrovanina.github.io/shri-performance/stats/stats" target="_blank">STATS</a>
 
-    <script src="node_modules/ua-parser-js/dist/ua-parser.min.js"></script>
     <script src="send.js"></script>
+    <script src='require.js'></script>
     <script>
+        const UAParser = require('ua-parser.min');
         const parser = new UAParser();
         const counter = new Counter();
 

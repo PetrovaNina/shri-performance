@@ -59,11 +59,11 @@ function calcMetricsByDate(data, page, date) {
 	let table = {};
 	table.connect = addMetricByDate(data, page, 'connect', date);
 	table.ttfb = addMetricByDate(data, page, 'ttfb', date);
-	table.load = addMetricByDate(data, page, 'quiz', date);
-	table.square = addMetricByDate(data, page, 'heading', date);
-	table.load = addMetricByDate(data, page, 'os', date);
-	table.generate = addMetricByDate(data, page, 'browser', date);
-	table.draw = addMetricByDate(data, page, 'platform', date);
+	table.quiz = addMetricByDate(data, page, 'quiz', date);
+	table.heading = addMetricByDate(data, page, 'heading', date);
+	table.os = addMetricByDate(data, page, 'os', date);
+	table.browser = addMetricByDate(data, page, 'browser', date);
+	table.platform = addMetricByDate(data, page, 'platform', date);
 
 	console.table(table);
 };
