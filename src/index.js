@@ -4,7 +4,7 @@ import { Counter } from './send';
 const parser = new UAParser();
 const counter = new Counter();
 
-counter.init('4043329bc2be441aabe3048c8bac2dc6', String(Math.random()).substr(2, 12), 'send test');
+counter.init('57C50A26-03F6-4E28-B883-3E1F80AD916F', String(Math.random()).substr(2, 12), 'send test');
 counter.setAdditionalParams({
   env: 'development',
   platform: parser.getDevice().type,
