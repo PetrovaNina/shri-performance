@@ -1,5 +1,5 @@
-import { UAParser } from 'ua-parser-js'
-import { Counter } from './send'
+const UAParser = require('ua-parser-js');
+const Counter =require('./send');
 
 const parser = new UAParser();
 const counter = new Counter();
