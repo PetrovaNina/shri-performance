@@ -105,8 +105,43 @@
         </div>
     </main>
     <a class="dev-link" href="https://petrovanina.github.io/shri-performance/stats/stats" target="_blank">STATS</a>
+
+    <script src="node_modules/ua-parser-js/dist/ua-parser.min.js"></script>
     <script src="send.js"></script>
-    <script src="counter.js"></script>
+    <script>
+        const parser = new UAParser();
+        const counter = new Counter();
+
+        counter.init('D8F28E50-3339-11EC-9EDF-9F93090795b6', String(Math.random()).substr(2, 12), 'send test');
+        counter.setAdditionalParams({
+            env: 'development',
+            platform: parser.getDevice().type,
+            browser: parser.getBrowser().name,
+            os: parser.getOS().name,
+        });
+
+        counter.send('platform', parser.getDevice().type)
+        counter.send('browser', parser.getBrowser().name)
+        counter.send('os', parser.getOS().name)
+        counter.send('connect', performance.timing.connectEnd - performance.timing.connectStart);
+        counter.send('ttfb', performance.timing.responseEnd - performance.timing.requestStart);
+
+        let timeStart = Date.now();
+
+        setTimeout(function () {
+            document.querySelector('.quiz-heading').style.color = 'red';
+            counter.send('heading', Date.now() - timeStart);
+        }, Math.random() * 1000 + 500);
+
+        document.querySelector('.quiz-area').onhover = function () {
+            let timeStart = Date.now();
+
+            setTimeout(function () {
+                counter.send('quiz', Date.now() - timeStart);
+            }, Math.random() * 1000 + 2000);
+        }
+
+    </script>
 </body>
 
 </html>
